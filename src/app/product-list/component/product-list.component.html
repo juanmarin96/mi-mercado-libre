@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center">
+  <div fxFlex="60" fxFlexOffset="20px">
+    <mat-form-field style="padding-right: 10px; width: 100%">
+      <input matInput  [(ngModel)]="productName" type="text" name="productName" placeholder="Ingrese el nombre del producto">
+    </mat-form-field>
+  </div>
+  <div fxFlex="40" fxFlexOffset="20px">
+    <button mat-raised-button (click)="searchProduct()">Buscar</button>
+  </div>
+</div>
