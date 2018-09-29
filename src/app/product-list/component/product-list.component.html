@@ -6,7 +6,7 @@
     <button mat-raised-button (click)="searchProduct()">Buscar</button>
   </div>
 </div>
-<div style="margin-top: 7%;"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="space-around">
+<div *ngIf="productsList.length > 1" style="margin-top: 7%;"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="space-around">
   <mat-card class="example-card" fxFlex="20%" *ngFor="let item of productsList">
     <!-- <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
@@ -23,4 +23,9 @@
       <span><strong>{{item.price | currency}}</strong></span>
     </mat-card-footer>
   </mat-card>
+</div>
+<div *ngIf="productsList.length == 0" style="margin-top: 7%;"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="center center">
+    <div fxFlex="60">
+        <p>No se encontraron artículos con ese nombre.</p>
+    </div>
 </div>
