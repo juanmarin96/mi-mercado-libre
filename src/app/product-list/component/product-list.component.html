@@ -1,10 +1,26 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center">
-  <div fxFlex="60" fxFlexOffset="20px">
-    <mat-form-field style="padding-right: 10px; width: 100%">
-      <input matInput  [(ngModel)]="productName" type="text" name="productName" placeholder="Ingrese el nombre del producto">
+<div fxLayout="row" fxLayout.xs="row" fxLayoutAlign="center center">
+  <div fxFlex="60">
+    <mat-form-field style="padding-right: 10px; width: 80%; margin-top: 7%; ">
+      <input matInput [(ngModel)]="productName" type="text" name="productName" placeholder="Ingrese el nombre del producto">
     </mat-form-field>
-  </div>
-  <div fxFlex="40" fxFlexOffset="20px">
     <button mat-raised-button (click)="searchProduct()">Buscar</button>
   </div>
+</div>
+<div style="margin-top: 7%;"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="space-around">
+  <mat-card class="example-card" fxFlex="20%" *ngFor="let item of productsList">
+    <!-- <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header> -->
+    <img mat-card-image [src]="item.thumbnail" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{item.title}}
+      </p>
+    </mat-card-content>
+    <mat-card-footer style="text-align: center">
+      <span><strong>{{item.price | currency}}</strong></span>
+    </mat-card-footer>
+  </mat-card>
 </div>

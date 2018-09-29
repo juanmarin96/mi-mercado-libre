@@ -12,16 +12,16 @@ export class ProductListService {
     apiUrl: string;
     constructor(private apiSettingsService: ApiSettingsService, private http: HttpClient, private messageService: MessageService) {
         this.apiUrl = this.apiSettingsService.getApiUrl();
-     }
+    }
 
     getProduct(productName: string): Observable<Product[]> {
         this.asignHeadersOptions()
         const url = this.apiUrl + "/search";
-        const params = new HttpParams({fromString: 'q='+productName});
+        const params = new HttpParams({ fromString: 'q=' + productName });
         return this.http.get<any>(url, { headers: this.headers, params: params })
             .pipe(
                 tap(heroes => this.log('fetched all')),
-                map((data) => data.results.map(x => {return new Product(x.id, x.title, x.price, x.thumbnail)})),
+                map((data) => data.results.map(x => { return new Product(x.id, x.title, x.price, x.thumbnail, x.permalink) })),
                 catchError(this.handleError('getAll', []))
             );
     }
