@@ -4,7 +4,7 @@
     class="sidenav"
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="over"
+    [mode]="'over'"
     [opened]="!(isHandset$ | async)"
     [autoFocus]="false">
     <mat-toolbar color="primary"></mat-toolbar>
